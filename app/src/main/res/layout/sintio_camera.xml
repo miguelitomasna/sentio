@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEA95"
+    tools:context=".SintioCameraActivity">
+
+    <!-- Imagen en la parte superior -->
+    <ImageView
+        android:id="@+id/imageViewSentio"
+        android:layout_width="351dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/sentio_description"
+        android:src="@drawable/text_sentio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Descripción de texto justificado -->
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:text="Sentio es una innovadora aplicación que utiliza las imágenes de la galería de tu dispositivo para medir y analizar tus emociones en tiempo real. Con tecnología avanzada de reconocimiento facial y algoritmos de inteligencia artificial."
+        android:textColor="@android:color/black"
+        android:textSize="12sp"
+        android:gravity="start"
+        android:justificationMode="inter_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewSentio" />
+
+    <!-- Rectángulo blanco para selector de archivos -->
+    <RelativeLayout
+        android:id="@+id/selectorArchivoLayout"
+        android:layout_width="369dp"
+        android:layout_height="435dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_border"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="selectFile"
+        app:layout_constraintBottom_toTopOf="@id/btnCalificarEstado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDescription"
+        tools:ignore="NotSibling">
+
+        <!-- ImageView redondeado para mostrar la imagen seleccionada -->
+        <com.example.sintio.RoundedImageView
+            android:id="@+id/imageViewSeleccionada"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!-- Texto "Seleccionar archivo" -->
+        <TextView
+            android:id="@+id/txtSelectorArchivos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Seleccionar archivo"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <!-- Contenedor para el botón y el texto "Sentionificar" -->
+    <FrameLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="356dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectorArchivoLayout">
+
+        <Button
+            android:id="@+id/btnCalificarEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="@drawable/rounded_button"
+            android:onClick="calificarEstado" />
+
+        <TextView
+            android:id="@+id/textCalificarEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="Sentionificar"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
